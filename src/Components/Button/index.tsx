@@ -1,7 +1,14 @@
 import React from 'react';
 import Styled from 'styled-components/native';
 
-const Container = Styled.TouchableOpacity``;
+const Container = Styled.TouchableOpacity`
+    background-color: #ddd;
+    width: 150px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+`;
 const Icon = Styled.Image``;
 
 interface Props {

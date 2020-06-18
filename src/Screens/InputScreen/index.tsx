@@ -21,7 +21,7 @@ const TitleLabel = Styled.Text`
 `;
 
 const InputContainer = Styled.View`
-    height: 160px;
+    height: 80px;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
@@ -44,6 +44,9 @@ const InputScreen = ({ title }: Props) => {
     const [value2, setValue2] = useState<number>(0);
     const [value3, setValue3] = useState<number>(0);
 
+    const [strike, setStrike] = useState<number>(0);
+    const [ball, setBall] = useState<number>(0);
+
     return (
         <Container>
             {title && (
@@ -54,9 +57,12 @@ const InputScreen = ({ title }: Props) => {
             <InputContainer>
                 <Inputs type={'number'}></Inputs>
             </InputContainer>
+            <InputContainer>
+                <Inputs type={'counter'}></Inputs>
+            </InputContainer>
             <ButtonContainer>
                 <Button iconName={'done'}></Button>
-                <Button iconName={'search'}></Button>
+                <Button iconName={'close'}></Button>
             </ButtonContainer>
         </Container>
     )

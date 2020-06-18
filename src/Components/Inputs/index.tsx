@@ -4,7 +4,12 @@ import Styled from 'styled-components/native';
 const Container = Styled.TouchableOpacity`
     flex: 1;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+`;
+
+const Text = Styled.Text`
+    font-size: 30px;
+    margin-left: 10px;
 `;
 
 const TextInput = Styled.TextInput`
@@ -13,6 +18,7 @@ const TextInput = Styled.TextInput`
     text-align: center;
     font-size: 30px;
     padding: 2px 15px;
+    margin-left: 10px;
 `;
 
 interface Props {
@@ -29,6 +35,16 @@ const Inputs = ({ type }: Props) => {
                         <TextInput></TextInput>
                         <TextInput></TextInput>
                         <TextInput></TextInput>
+                    </>
+                )
+            }
+            {
+                type === 'counter' && (
+                    <>
+                        <TextInput></TextInput>
+                        <Text>S</Text>
+                        <TextInput></TextInput>
+                        <Text>B</Text>
                     </>
                 )
             }
