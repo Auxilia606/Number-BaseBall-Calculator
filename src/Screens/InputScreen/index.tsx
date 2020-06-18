@@ -8,7 +8,7 @@ const Container = Styled.SafeAreaView`
 `;
 
 const TitleContainer = Styled.View`
-    flex: 1;
+    height: 80px;
     justify-content: center;
     align-items: center;
     background-color: #aaf;
@@ -21,14 +21,14 @@ const TitleLabel = Styled.Text`
 `;
 
 const InputContainer = Styled.View`
-    flex: 1;
+    height: 160px;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 `;
 
 const ButtonContainer = Styled.View`
-    flex: 1;
+    height: 50px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -52,7 +52,7 @@ const InputScreen = ({ title }: Props) => {
                 </TitleContainer>
             )}
             <InputContainer>
-                <Inputs number={4}></Inputs>
+                <Inputs type={'number'}></Inputs>
             </InputContainer>
             <ButtonContainer>
                 <Button iconName={'done'}></Button>

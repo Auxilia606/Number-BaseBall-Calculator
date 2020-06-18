@@ -6,6 +6,7 @@ const Container = Styled.TouchableOpacity`
     flex-direction: row;
     justify-content: space-evenly;
 `;
+
 const TextInput = Styled.TextInput`
     border: 1px solid black;
     border-radius: 3px;
@@ -15,14 +16,14 @@ const TextInput = Styled.TextInput`
 `;
 
 interface Props {
-    number: number;
+    type: 'number' | 'counter';
 }
 
-const Inputs = ({ number }: Props) => {
+const Inputs = ({ type }: Props) => {
     return (
         <Container>
             {
-                number === 4 && (
+                type === 'number' && (
                     <>
                         <TextInput></TextInput>
                         <TextInput></TextInput>
