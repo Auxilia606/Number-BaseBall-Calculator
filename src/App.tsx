@@ -5,7 +5,7 @@ import InputScreen from './Screens/InputScreen';
 
 const Container = Styled.View`
   flex: 1;
-  background-color: #eee;
+  background-color: #EEE;
 `;
 
 const App = () => {
