@@ -7,6 +7,7 @@ interface Props {
 const BaseballDataContext = createContext<IBaseballDataContext>({
     baseballData: [],
     addBaseballData: (data: string): void => { },
+    removeBaseballData: (index: number): void => { },
     resetBaseballData: (): void => { }
 });
 
@@ -17,6 +18,12 @@ const BaseballDataProvider = ({ children }: Props) => {
         setBaseballData(baseballDataList);
     };
 
+    const removeBaseballData = (index: number): void => {
+        let list = [...baseballData];
+        list.splice(index, 1);
+        setBaseballData(list);
+    }
+
     const resetBaseballData = (): void => {
         setBaseballData([]);
     };
@@ -26,6 +33,7 @@ const BaseballDataProvider = ({ children }: Props) => {
             value={{
                 baseballData,
                 addBaseballData,
+                removeBaseballData,
                 resetBaseballData
             }}>
             {children}
