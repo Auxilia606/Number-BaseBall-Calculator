@@ -9,6 +9,12 @@ const Container = Styled.View`
     align-items: center;
 `;
 
+const Title = Styled.Text`
+    margin-top: 30px;
+    font-size: 36px;
+    font-weight: bold
+`;
+
 const NumberLabel = Styled.Text`
     font-size: 24px;
     font-weight: bold;
@@ -24,6 +30,7 @@ const RecommendedNumber = ({ }: Props) => {
     const recommendedNumber = pickRandomNumber(recommendedNumberSet);
     return (
         <Container>
+            <Title>Recommended Number</Title>
             <NumberLabel>{baseballData.length === 0 ? '----' : recommendedNumber}</NumberLabel>
         </Container>
     )
