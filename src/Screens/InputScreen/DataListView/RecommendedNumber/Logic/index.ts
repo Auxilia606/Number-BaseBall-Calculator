@@ -7,7 +7,9 @@ export const initBaseballNumbers = () => {
                     if (i2 !== i1 && i2 !== i0) {
                         for (let i3 = 0; i3 < 10; i3++) {
                             if (i3 !== i2 && i3 !== i1 && i3 !== i0) {
-                                arr.push([i0, i1, i2, i3, false]);
+                                let item: [number, number, number, number, boolean];
+                                item = [i0, i1, i2, i3, false];
+                                arr.push(item);
                             }
                         }
                     }
@@ -37,7 +39,7 @@ export const changeTypes = (arr: Array<string>) => {
     return newArr as Array<Array<number | string>>;
 };
 
-export const checkData = (numberSet: Array<Array<number | boolean>>, dataSet: Array<Array<number | string>>) => {
+export const checkData = (numberSet: Array<[number, number, number, number, boolean]>, dataSet: Array<Array<number | string>>) => {
     let newNumberSet = [...numberSet];
     for (let j = 0; j < newNumberSet.length; j++) {
         let result = true;
@@ -51,7 +53,7 @@ export const checkData = (numberSet: Array<Array<number | boolean>>, dataSet: Ar
     return newNumberSet;
 };
 
-const compareData = (numbers: Array<number | boolean>, datas: Array<number | string>) => {
+const compareData = (numbers: [number, number, number, number, boolean], datas: Array<number | string>) => {
     let countS = 0;
     let countB = 0;
     let counter = '';
@@ -80,13 +82,13 @@ const compareData = (numbers: Array<number | boolean>, datas: Array<number | str
     }
 };
 
-export const pickRandomNumber = (numberSet: Array<Array<number | boolean>>) => {
-    let count = 0;
+export const pickRandomNumber = (numberSet: Array<[number, number, number, number, boolean]>) => {
     let numbers = [];
+    let rand = Math.random();
     for (let i=0;i<numberSet.length;i++){
-        if (numberSet[4]) {
-            
+        if (numberSet[i][4]) {
+            numbers.push(numberSet[i][0] * 1000 + numberSet[i][1] * 100 + numberSet[i][2] * 10 + numberSet[i][3]);
         }
     }
-
+    return numbers[Math.floor(numbers.length*rand)];
 };

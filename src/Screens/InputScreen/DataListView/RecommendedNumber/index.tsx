@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Styled from 'styled-components/native';
 import { BaseballDataContext } from '~/Context/BaseballDataContext'
-import { initBaseballNumbers, changeTypes, checkData } from './Logic';
+import { initBaseballNumbers, changeTypes, checkData, pickRandomNumber } from './Logic';
 
 const Container = Styled.View`
     height: 40px;
@@ -18,14 +18,13 @@ interface Props { }
 
 const RecommendedNumber = ({ }: Props) => {
     const { baseballData } = useContext<IBaseballDataContext>(BaseballDataContext);
-    const [recommendedNumber, setRecommendedNumber] = useState<string>('----');
     const newNumberSet = initBaseballNumbers();
     const newBaseballData = changeTypes(baseballData);
     const recommendedNumberSet = checkData(newNumberSet, newBaseballData);
-
+    const recommendedNumber = pickRandomNumber(recommendedNumberSet);
     return (
         <Container>
-            <NumberLabel>{recommendedNumber}</NumberLabel>
+            <NumberLabel>{baseballData.length === 0 ? '----' : recommendedNumber}</NumberLabel>
         </Container>
     )
 }
