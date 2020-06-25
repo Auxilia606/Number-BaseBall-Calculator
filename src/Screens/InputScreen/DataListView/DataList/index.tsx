@@ -3,6 +3,7 @@ import { FlatList } from 'react-native';
 import Styled from 'styled-components/native';
 import { BaseballDataContext } from '~/Context/BaseballDataContext'
 import DataListItem from './DataListItem'
+import EmptyItem from './EmptyItem';
 
 const Container = Styled(FlatList)``;
 
@@ -16,6 +17,7 @@ const DataList = ({ }: Props) => {
             keyExtractor={(item, index) => {
                 return `data-${index}`;
             }}
+            ListEmptyComponent={<EmptyItem />}
             renderItem={({ item, index }) => (
                 <DataListItem
                     text={item as string}
