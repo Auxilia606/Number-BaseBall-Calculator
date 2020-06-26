@@ -59,7 +59,7 @@ const compareData = (numbers: [number, number, number, number, boolean], datas: 
     let counter = '';
     for (let i = 0; i < 4; i++) {
         for (let j = 0; j < 4; j++) {
-            if (numbers[i] === datas[j] && i===j) {
+            if (numbers[i] === datas[j] && i === j) {
                 countS++;
             } else if (numbers[i] === datas[j]) {
                 countB++;
@@ -85,7 +85,7 @@ const compareData = (numbers: [number, number, number, number, boolean], datas: 
 export const pickRandomNumber = (numberSet: Array<[number, number, number, number, boolean]>) => {
     let numbers = [];
     let rand = Math.random();
-    for (let i=0;i<numberSet.length;i++){
+    for (let i = 0; i < numberSet.length; i++) {
         if (numberSet[i][4]) {
             let pickedNumber = numberSet[i][0] * 1000 + numberSet[i][1] * 100 + numberSet[i][2] * 10 + numberSet[i][3];
             if (pickedNumber < 1000) {
@@ -95,5 +95,5 @@ export const pickRandomNumber = (numberSet: Array<[number, number, number, numbe
             }
         }
     }
-    return numbers[Math.floor(numbers.length*rand)];
+    return numbers[Math.floor(numbers.length * rand)];
 };
