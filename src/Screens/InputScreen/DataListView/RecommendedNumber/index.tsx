@@ -28,7 +28,7 @@ const RecommendedNumber = ({ }: Props) => {
     const recommendedNumber = pickRandomNumber(recommendedNumberSet);
     return (
         <Container>
-            <Title>Recommended Number</Title>
+            <Title>추천 숫자</Title>
             <NumberLabel>{baseballData.length === 0 ? '----' : recommendedNumber}</NumberLabel>
         </Container>
     )

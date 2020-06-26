@@ -22,7 +22,7 @@ const checkBaseballNumber = (number: number) => {
     for (let i = 0; i < 3; i++) {
         for (let j = i + 1; j < 4; j++) {
             if (arr[i] === arr[j]) {
-                return false;           
+                return false;
             }
         }
     }
@@ -30,7 +30,7 @@ const checkBaseballNumber = (number: number) => {
 };
 
 const checkBaseballCounter = (counter: string) => {
-    if (counter === 'out' || counter === 'Out' || counter === 'OUT' || counter === '1B' || counter === '2B'
+    if (counter === 'OUT' || counter === '1B' || counter === '2B'
         || counter === '3B' || counter === '4B' || counter === '1S' || counter === '1S1B' || counter === '1S2B'
         || counter === '1S3B' || counter === '2S' || counter === '2S1B' || counter === '2S2B' || counter === '3S') {
         return true;
@@ -44,7 +44,7 @@ const BaseballDataProvider = ({ children }: Props) => {
     const [recommendedNumber, setRecommendedNumber] = useState<number | string>('----');
     const addBaseballData = (data: string): void => {
         const baseballNumber = Number(data.split(' ')[0]);
-        const baseballCounter = data.split(' ')[1];
+        const baseballCounter = data.split(' ')[1].toUpperCase();
         if (checkBaseballCounter(baseballCounter) && checkBaseballNumber(baseballNumber)) {
             setBaseballData([...baseballData, data]);
         }

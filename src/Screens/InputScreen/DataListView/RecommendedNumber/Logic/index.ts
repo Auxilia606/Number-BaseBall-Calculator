@@ -29,11 +29,7 @@ export const changeTypes = (arr: Array<string>) => {
             newItem[3 - i] = number % 10;
             number = (number - newItem[3 - i]) / 10;
         }
-        if (counter === 'Out' || counter === 'out') {
-            newItem[4] = 'OUT';
-        } else {
-            newItem[4] = counter;
-        }
+        newItem[4] = counter.toUpperCase();
         return newItem;
     });
     return newArr as Array<Array<number | string>>;
@@ -95,5 +91,9 @@ export const pickRandomNumber = (numberSet: Array<[number, number, number, numbe
             }
         }
     }
-    return numbers[Math.floor(numbers.length * rand)];
+    if (numbers.length === 0) {
+        return "Error!"
+    } else {
+        return numbers[Math.floor(numbers.length * rand)];
+    }
 };
