@@ -4,13 +4,11 @@ import { BaseballDataContext } from '~/Context/BaseballDataContext'
 import { initBaseballNumbers, changeTypes, checkData, pickRandomNumber } from './Logic';
 
 const Container = Styled.View`
-    height: 40px;
     justify-content: center;
     align-items: center;
 `;
 
 const Title = Styled.Text`
-    margin-top: 30px;
     font-size: 36px;
     font-weight: bold
 `;
