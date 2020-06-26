@@ -87,7 +87,12 @@ export const pickRandomNumber = (numberSet: Array<[number, number, number, numbe
     let rand = Math.random();
     for (let i=0;i<numberSet.length;i++){
         if (numberSet[i][4]) {
-            numbers.push(numberSet[i][0] * 1000 + numberSet[i][1] * 100 + numberSet[i][2] * 10 + numberSet[i][3]);
+            let pickedNumber = numberSet[i][0] * 1000 + numberSet[i][1] * 100 + numberSet[i][2] * 10 + numberSet[i][3];
+            if (pickedNumber < 1000) {
+                numbers.push(`0${pickedNumber}`);
+            } else {
+                numbers.push(`${pickedNumber}`);
+            }
         }
     }
     return numbers[Math.floor(numbers.length*rand)];
