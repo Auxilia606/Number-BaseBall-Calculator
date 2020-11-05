@@ -2,20 +2,22 @@ import React from 'react';
 import Styled from 'styled-components/native';
 import RecommendedNumber from './RecommendedNumber';
 import DataList from './DataList';
+import NumberSetting from './NumberSetting';
 
 const Container = Styled.SafeAreaView`
     flex: 1;
 `;
 
-interface Props { }
+interface Props {}
 
-const DataListView = ({ }: Props) => {
+const DataListView = ({}: Props) => {
     return (
         <Container>
-            <RecommendedNumber></RecommendedNumber>
+            <NumberSetting />
+            <RecommendedNumber />
             <DataList />
         </Container>
-    )
-}
+    );
+};
 
 export default DataListView;

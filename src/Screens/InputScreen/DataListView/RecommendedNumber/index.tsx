@@ -1,7 +1,12 @@
 import React, { useContext } from 'react';
 import Styled from 'styled-components/native';
-import { BaseballDataContext } from '~/Context/BaseballDataContext'
-import { initBaseballNumbers, changeTypes, checkData, pickRandomNumber } from './Logic';
+import { BaseballDataContext } from '~/Context/BaseballDataContext';
+import {
+    initBaseballNumbers,
+    changeTypes,
+    checkData,
+    pickRandomNumber,
+} from './Logic';
 
 const Container = Styled.View`
     justify-content: center;
@@ -19,20 +24,29 @@ const NumberLabel = Styled.Text`
     font-weight: bold;
 `;
 
-interface Props { }
+interface Props {}
 
-const RecommendedNumber = ({ }: Props) => {
-    const { baseballData } = useContext<IBaseballDataContext>(BaseballDataContext);
-    const newNumberSet = initBaseballNumbers();
-    const newBaseballData = changeTypes(baseballData);
-    const recommendedNumberSet = checkData(newNumberSet, newBaseballData);
+const RecommendedNumber = ({}: Props) => {
+    const { baseballData, baseballNumberCounter } = useContext<
+        IBaseballDataContext
+    >(BaseballDataContext);
+    const newNumberSet = initBaseballNumbers(baseballNumberCounter);
+    const newBaseballData = changeTypes(baseballData, baseballNumberCounter);
+    const recommendedNumberSet = checkData(newNumberSet, newBaseballData, baseballNumberCounter);
     const recommendedNumber = pickRandomNumber(recommendedNumberSet);
+
+    let defaultString = '';
+    for (let i = 0; i < baseballNumberCounter; i++) {
+        defaultString += '-';
+    }
     return (
         <Container>
             <Title>추천 숫자</Title>
-            <NumberLabel>{baseballData.length === 0 ? '----' : recommendedNumber}</NumberLabel>
+            <NumberLabel>
+                {baseballData.length === 0 ? defaultString : recommendedNumber}
+            </NumberLabel>
         </Container>
-    )
-}
+    );
+};
 
 export default RecommendedNumber;

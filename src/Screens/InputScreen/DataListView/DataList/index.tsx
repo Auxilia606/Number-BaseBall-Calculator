@@ -1,16 +1,18 @@
 import React, { useContext } from 'react';
 import { FlatList } from 'react-native';
 import Styled from 'styled-components/native';
-import { BaseballDataContext } from '~/Context/BaseballDataContext'
-import DataListItem from './DataListItem'
+import { BaseballDataContext } from '~/Context/BaseballDataContext';
+import DataListItem from './DataListItem';
 import EmptyItem from './EmptyItem';
 
 const Container = Styled(FlatList)``;
 
-interface Props { }
+interface Props {}
 
-const DataList = ({ }: Props) => {
-    const { baseballData, removeBaseballData } = useContext<IBaseballDataContext>(BaseballDataContext);
+const DataList = ({}: Props) => {
+    const { baseballData, removeBaseballData } = useContext<
+        IBaseballDataContext
+    >(BaseballDataContext);
     return (
         <Container
             data={baseballData}
@@ -25,9 +27,8 @@ const DataList = ({ }: Props) => {
                 ></DataListItem>
             )}
             contentContainerStyle={baseballData.length === 0 && { flex: 1 }}
-        >
-        </Container>
-    )
-}
+        ></Container>
+    );
+};
 
 export default DataList;
