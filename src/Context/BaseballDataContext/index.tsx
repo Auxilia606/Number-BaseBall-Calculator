@@ -76,10 +76,11 @@ const BaseballDataProvider = ({ children }: Props) => {
     const [baseballNumberCounter, setBaseballNumberCounter] = useState<number>(4);
     const addBaseballData = (data: string): void => {
         const baseballNumber = data.split(' ')[0];
-        const baseballCounter = data.split(' ')[1].toUpperCase();
+        const baseballCounter = data.split(' ')[1] && data.split(' ')[1].toUpperCase();
         if (
             checkBaseballCounter(baseballCounter) &&
-            checkBaseballNumber(baseballNumber, baseballNumberCounter)
+            checkBaseballNumber(baseballNumber, baseballNumberCounter) &&
+            baseballCounter !== undefined
         ) {
             setBaseballData([...baseballData, data]);
         }
